@@ -18,8 +18,6 @@
 )
 
 $cmd = {
-$text = 'Hello World'
-$text | Add-Content D:\1234.txt
 $Site1StoreFront1 | Add-Content D:\1234.txt
 $Site1StoreFront2 | Add-Content D:\1234.txt
 $Site1DeliveryController1 | Add-Content D:\1234.txt
