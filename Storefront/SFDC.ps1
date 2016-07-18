@@ -14,7 +14,11 @@
 [parameter(Mandatory=$True)]
 [String]$Site2DeliveryController1,
 [parameter(Mandatory=$True)]
-[String]$Site2DeliveryController2
+[String]$Site2DeliveryController2,
+[parameter(Mandatory=$True)]
+[String]$Site1CitrixSiteName,
+[parameter (Mandatory=$True)]
+[String]$Site2CitrixSiteName
 )
 
 $cmd = {
@@ -26,6 +30,8 @@ $Site2StoreFront1 | Add-Content C:\1234.txt
 $Site2StoreFront2 | Add-Content C:\1234.txt
 $Site2DeliveryController1 | Add-Content C:\1234.txt
 $Site2DeliveryController2 | Add-Content C:\1234.txt
+$Site1CitrixSiteName | Add-Content C:\1234.txt
+$Site2CitrixSiteName | Add-Content C:\1234.txt
 }
 Invoke-Command -ScriptBlock $cmd
 
