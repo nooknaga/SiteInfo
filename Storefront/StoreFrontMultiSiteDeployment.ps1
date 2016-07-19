@@ -6,7 +6,7 @@
     [string]$Site2CitrixSiteName
 )
 
-Import-Module ..\Modules\CitrixStoreFrontOperations.psm1
+Import-Module .\Modules\CitrixStoreFrontOperations.psm1
 Write-Host $Site1SFServer1
 Write-Host $Site2SFServer1
 Write-Host $Site1CitrixSiteName
