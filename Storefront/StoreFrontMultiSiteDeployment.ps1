@@ -6,8 +6,9 @@
     [string]$Site2CitrixSiteName
 )
 
-Import-Module .\Modules\CitrixStoreFrontOperations.psm1
-Write-Host $Site1SFServer1
+$currentPath=Split-Path ((Get-Variable MyInvocation -Scope 0).Value).MyCommand.Path
+import-module "$currentPath\Modules\CitrixStoreFrontOperations.psm1"
+Write-Host $Site1SFServer1git
 Write-Host $Site2SFServer1
 Write-Host $Site1CitrixSiteName
 Write-Host $Site2CitrixSiteName
