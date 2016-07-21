@@ -24,17 +24,17 @@
 )
 
 $cmd = {
-$FirmID | Add-Content D:\1234.txt
-$Site1StoreFront1 | Add-Content D:\1234.txt
+$FirmID | Add-Content C:\1234.txt
+$Site1StoreFront1 | Add-Content C:\1234.txt
 #$Site1StoreFront2 | Add-Content C:\1234.txt
 #$Site1DeliveryController1 | Add-Content C:\1234.txt
 #$Site1DeliveryController2 | Add-Content C:\1234.txt
-$Site2StoreFront1 | Add-Content D:\1234.txt
+$Site2StoreFront1 | Add-Content C:\1234.txt
 #$Site2StoreFront2 | Add-Content C:\1234.txt
 #$Site2DeliveryController1 | Add-Content C:\1234.txt
 #$Site2DeliveryController2 | Add-Content C:\1234.txt
-$Site1CitrixSiteName | Add-Content D:\1234.txt
-$Site2CitrixSiteName | Add-Content D:\1234.txt
+$Site1CitrixSiteName | Add-Content C:\1234.txt
+$Site2CitrixSiteName | Add-Content C:\1234.txt
 }
 Invoke-Command -ScriptBlock $cmd
 
