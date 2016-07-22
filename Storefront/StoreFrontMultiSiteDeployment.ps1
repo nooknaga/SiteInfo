@@ -3,12 +3,15 @@
     [string]$Site1SFServer1,
     [string]$Site2SFServer1,
     [string]$Site1CitrixSiteName,
-    [string]$Site2CitrixSiteName
+    [string]$Site2CitrixSiteName,
+    [string]$SSUSERNAME,
+    [string]$SSPASSWORD
 )
 
 $currentPath=Split-Path ((Get-Variable MyInvocation -Scope 0).Value).MyCommand.Path
-import-module "$currentPath\Modules\CitrixStoreFrontOperations.psm1"
-Write-Host $Site1SFServer1git
+Import-Module "$currentPath\Modules\CitrixStoreFrontOperations.psm1"
+Import-Module "$currentPath\Modules\sspslib.psm1"
+Write-Host $Site1SFServer1
 Write-Host $Site2SFServer1
 Write-Host $Site1CitrixSiteName
 Write-Host $Site2CitrixSiteName
@@ -58,11 +61,16 @@ if($GetADProdPowerGroupDetails -eq $null)
 #Get SID for Prod Group
 $ProdPowerGroupSID=$GetADProdPowerGroupDetails.SID.Value
 #########################################################################################
-
+#Get Secret Server for Invoke-Command
+# SS paramter information
+$domain = 'advent.com'
+$url = 'https://vmsfclandestine.advent.com/webservices/sswebservice.asmx'
+$connection = connectss $url $domain $SSUSERNAME $SSPASSWORD
+$adminpass = getsspassword $connection.tokenid $connection.proxyid "hosting\mcalabrese"
 ##################################################################################################
 #Creddentails to Invoke-Command
 $Username1="hosting\mcalabrese"
-$password1=convertto-securestring "34erdfCVBN" -asplaintext -force
+$password1=convertto-securestring $adminpass -asplaintext -force
 $credentials1=New-object -typename System.Management.Automation.PSCredential -argumentlist $Username1,$password1
 Write-Host Creating Machine Catlaog for $SiteDetails.Site1SFServer1 for Group 
 Invoke-Command -Credential $credentials1 -ComputerName $Site1SFServer1 -ScriptBlock ${function:FirmBasedMapping} -ArgumentList $Site1CitrixSiteName,$Site2CitrixSiteName,$assignedGroupProd,$ProdGroupSID,"Firm_$assignedGroupProd"
