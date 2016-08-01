@@ -4,7 +4,9 @@
     [string]$COMPANYNAME="Geneva",
     [string]$SITE="US",
     [string]$SSUSERNAME,
-    [string]$SSPASSWORD
+    [string]$SSPASSWORD,
+    [string]$Site1DCServer1,
+    [string]$Site2DCServer1
 )
 Import-Module "$currentPath\Modules\sspslib.psm1"
 Import-Module "$currentPath\Modules\CitixDeploymentOperations.psm1"
@@ -37,7 +39,7 @@ $arrUsersGroupStg = "$FIRMID-Geneva-Stg-PowerUsers",`
 $domain = 'advent.com'
 $url = 'https://vmsfclandestine.advent.com/webservices/sswebservice.asmx'
 $connection = connectss $url $domain $SSUSERNAME $SSPASSWORD
-$svcpass = getsspassword $connection.tokenid $connection.proxyid "hosting\svc_cxjoiner"
+$svcpass = getsspassword $connection.tokenid $connection.proxyid "svc_cxjoiner"
 ##################################################################################################
 
 #Creddentails to Invoke-Command
