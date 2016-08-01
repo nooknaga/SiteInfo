@@ -66,10 +66,10 @@ $ProdPowerGroupSID=$GetADProdPowerGroupDetails.SID.Value
 $domain = 'advent.com'
 $url = 'https://vmsfclandestine.advent.com/webservices/sswebservice.asmx'
 $connection = connectss $url $domain $SSUSERNAME $SSPASSWORD
-$adminpass = getsspassword $connection.tokenid $connection.proxyid "hosting\mcalabrese"
+$adminpass = getsspassword $connection.tokenid $connection.proxyid "svc_cxjoiner"
 ##################################################################################################
 #Creddentails to Invoke-Command
-$Username1="hosting\mcalabrese"
+$Username1="hosting\svc_cxjoiner"
 $password1=convertto-securestring $adminpass -asplaintext -force
 $credentials1=New-object -typename System.Management.Automation.PSCredential -argumentlist $Username1,$password1
 Write-Host Creating Machine Catlaog for $SiteDetails.Site1SFServer1 for Group 
