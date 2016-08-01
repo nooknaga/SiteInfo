@@ -7,6 +7,7 @@
     [string]$Site1DCServer1,
     [string]$Site2DCServer1
 )
+$currentPath=Split-Path ((Get-Variable MyInvocation -Scope 0).Value).MyCommand.Path
 Import-Module "$currentPath\Modules\sspslib.psm1"
 Import-Module "$currentPath\Modules\CitixDeploymentOperations.psm1"
 Write-Host $Site1DCServer1
