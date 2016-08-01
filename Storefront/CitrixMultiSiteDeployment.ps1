@@ -2,7 +2,6 @@
     [string]$FIRMID="930585",                
     [string]$ENVIRONMENT,
     [string]$COMPANYNAME="Geneva",
-    [string]$SITE="US",
     [string]$SSUSERNAME,
     [string]$SSPASSWORD,
     [string]$Site1DCServer1,
