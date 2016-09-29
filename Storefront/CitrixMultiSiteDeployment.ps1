@@ -55,10 +55,10 @@ Invoke-Command -Credential $credentials1 -ComputerName $Site1DCServer1 -ScriptBl
 Write-Host Creating Machine Catlaog for $Site1DCServer1 for Group $StgCatalogGroup
 Invoke-Command -Credential $credentials1 -ComputerName $Site1DCServer1 -ScriptBlock ${function:CreateCatalog} -ArgumentList $StgCatalogGroup,$StgCatalogGroupDesc,$Site1DCServer1
 #Creating Machine Cataog for Stage Users in Site2
-#Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $ProdCatalogGroup
-#Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateCatalog} -ArgumentList $machineCatalogName,$machineCatalogDesc,$Site2DCServer1
-#Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $StgCatalogGroup
-#Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateCatalog} -ArgumentList $machineCatalogName,$machineCatalogDesc,$Site2DCServer1
+Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $ProdCatalogGroup
+Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateCatalog} -ArgumentList $machineCatalogName,$machineCatalogDesc,$Site2DCServer1
+Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $StgCatalogGroup
+Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateCatalog} -ArgumentList $machineCatalogName,$machineCatalogDesc,$Site2DCServer1
 ############################################################################################
 #Creating DeliveryGroup 
 ############################################################################################
@@ -68,10 +68,10 @@ Invoke-Command -Credential $credentials1 -ComputerName $Site1DCServer1 -ScriptBl
 Write-Host Creating Machine Catlaog for $Site1DCServer1 for Group $StgDelGroup
 Invoke-Command -Credential $credentials1 -ComputerName $Site1DCServer1 -ScriptBlock ${function:CreateDeliveryGroup} -ArgumentList $StgDelGroup,$StgDelGroupDesc,$arrUsersGroupStg,$StgCatalogGroup,$Site1DCServer1
 #Creating Delivery Group for Prod Users in Site2
-#Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $ProdDelGroup
-#Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateDeliveryGroup} -ArgumentList $ProdDelGroup,$ProdDelGroupDesc,$arrUsersGroupProd,$ProdCatalogGroup,$Site2DCServer1
-#Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $StgDelGroup
-#Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateDeliveryGroup} -ArgumentList $StgDelGroup,$StgDelGroupdesc,$arrUsersGroupStg,$StgCatalogGroup,$Site2DCServer1
+Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $ProdDelGroup
+Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateDeliveryGroup} -ArgumentList $ProdDelGroup,$ProdDelGroupDesc,$arrUsersGroupProd,$ProdCatalogGroup,$Site2DCServer1
+Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $StgDelGroup
+Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateDeliveryGroup} -ArgumentList $StgDelGroup,$StgDelGroupdesc,$arrUsersGroupStg,$StgCatalogGroup,$Site2DCServer1
 ########################################################################################################################################################
 ############################################################################################
 #Creating Publish Apps
@@ -82,7 +82,7 @@ Invoke-Command -Credential $credentials1 -ComputerName $Site1DCServer1 -ScriptBl
 Write-Host Adding Applications for $SiteDetails.Site1DCServer1 Staging Delivery Group firm : $FIRMID
 Invoke-Command -Credential $credentials1 -ComputerName $Site1DCServer1 -ScriptBlock ${function:PublishApp} -ArgumentList $StgDelGroup,$Site1DCServer1
 #Creating Delivery Group for Prod Users in Site2
-#Write-Host Adding Applications for $Site2DCServer1 Production Delivery Group firm : $FIRMID
-#Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:PublishApp} -ArgumentList $ProdDelGroup,$Site2DCServer1
-#Write-Host Adding Applications for $SiteDetails.Site2DCServer1 Staging Delivery Group firm : $FIRMID
-#Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:PublishApp} -ArgumentList $StgDelGroup,$Site2DCServer1
+Write-Host Adding Applications for $Site2DCServer1 Production Delivery Group firm : $FIRMID
+Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:PublishApp} -ArgumentList $ProdDelGroup,$Site2DCServer1
+Write-Host Adding Applications for $SiteDetails.Site2DCServer1 Staging Delivery Group firm : $FIRMID
+Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:PublishApp} -ArgumentList $StgDelGroup,$Site2DCServer1
