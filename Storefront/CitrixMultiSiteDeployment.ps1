@@ -10,8 +10,8 @@
 $currentPath=Split-Path ((Get-Variable MyInvocation -Scope 0).Value).MyCommand.Path
 Import-Module "$currentPath\Modules\sspslib.psm1"
 Import-Module "$currentPath\Modules\CitixDeploymentOperations.psm1"
-Write-Host $Site1DCServer1
-Write-Host $Site2DCServer1
+Write-Host "First Delivery Controller" $Site1DCServer1
+Write-Host "Second Delivery Controller" $Site2DCServer1
 Write-Host $Site1SFServer1
 Write-Host $Site2SFServer1
 ###########################################################################################
@@ -55,6 +55,7 @@ Invoke-Command -Credential $credentials1 -ComputerName $Site1DCServer1 -ScriptBl
 Write-Host Creating Machine Catlaog for $Site1DCServer1 for Group $StgCatalogGroup
 Invoke-Command -Credential $credentials1 -ComputerName $Site1DCServer1 -ScriptBlock ${function:CreateCatalog} -ArgumentList $StgCatalogGroup,$StgCatalogGroupDesc,$Site1DCServer1
 #Creating Machine Cataog for Stage Users in Site2
+Write-Host "Creating in Site2"
 Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $ProdCatalogGroup
 Invoke-Command -Credential $credentials1 -ComputerName $Site2DCServer1 -ScriptBlock ${function:CreateCatalog} -ArgumentList $machineCatalogName,$machineCatalogDesc,$Site2DCServer1
 Write-Host Creating Machine Catlaog for $Site2DCServer1 for Group $StgCatalogGroup
